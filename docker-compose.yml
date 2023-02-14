@@ -1,0 +1,17 @@
+version: "2.2"
+services:
+  mio_web_server: 
+    build: .
+    ports:
+      - 8080:80
+      - 4430:443
+    volumes:
+    - ./php:/var/www/html
+  Database:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=ren
